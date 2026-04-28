@@ -1,0 +1,13 @@
+body{
+    margin: auto 0;
+   
+}
+
+.botton{
+text-decoration: none;
+display: grid;
+grid-template-columns: 1fr 1fr;
+border: 1px solid;
+padding: 5px;
+display: inline;
+}
