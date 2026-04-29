@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=H1, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/index.css">
-    <title>Document</title>
+    <title>Pagina Principal</title>
 </head>
 <body>
     <header>RANGEL SUPPORT</header>
@@ -16,6 +16,6 @@
 
     <a href="" class="botton">Crear una incidencia</a>
     <a href="" class="botton">Seguimiento de mi incidencia</a>
-    <a href="" class="botton">Panel técnico</a>
+    <a href="login_tecnico.php" class="botton">Panel técnico</a>
 </body>
 </html>
