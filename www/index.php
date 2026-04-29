@@ -7,10 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>RANGEL SUPPORT</h1>
+    <header>RANGEL SUPPORT</header>
 
+    <h1>¿Qué hacemos hoy, Instituto?</h1>
     <div class="logo">
-     <img src="" alt="">
+     <img src="IMG/LogoEmpresa.jpg" alt="LogodeEmpresa">
     </div>
 
     <a href="" class="botton">Crear una incidencia</a>
