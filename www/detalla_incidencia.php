@@ -1,36 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="detalla_incidencia.css">
     <title>Crear incidencia</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
 
-    <h1 style="text-align:center;">CREAR INCIDENCIA</h1>
+    <header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
+     
+    <div class="d-flex align-items-center">
+        <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height: 40px;">
+    </div>
 
-    <form>
+    <a href="index.php" class="btn btn-outline-primary d-flex align-items-center">
+        <i class="bi bi-house-door-fill" style="font-size: 1.3rem;"></i>
+    </a>
 
-        <strong><br>Descripción:<br></STRONG>
-        <textarea name="descripcion"></textarea><br><br>
+</header>
+<h1 class="text-center fw-bold my-4">CREAR INCIDENCIA</h1>
+<body class="bg-light">
 
-        <strong><br>Descripción:<br></strong>
-        <textarea name="descripcion"></textarea><br><br>
 
-        <strong><label>Departamento:</label><br></strong>
-        <input type="text" name="departamento"><br><br>
+    <div class="container">
+        <form class="card p-4 shadow-sm mx-auto" style="max-width: 600px;">
 
-        <strong><label>Usuario creador:</strong></label><br>
-        <input type="text" name="usuario"><br><br>
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Aula</label>
+                <select name="tipo" class="form-select">
+                    <option value="">Selecciona tu aula</option>
+                    <option value="INFO10">INF10 DAW</option>
+                    <option value="INFO11">INFO11 DAM</option>
+                    <option value="INFO12">INFO12 ASIX</option>
+                </select>
+            </div>
 
-        <div style="margin-top:20px;">
-        <a href="index.php" class="text-decoration-none text-dark">Regresa a la página Principal</a>
-        <button class="btn btn-primary">Enviar</button>
-        </div>
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Prioridad</label>
+                <select name="prioridad" class="form-select">
+                    <option value="">Selecciona tu numero de ordenador</option>
+                    <option value="baja">A1</option>
+                    <option value="media">A2</option>
+                    <option value="alta">A3</option>
+                    <option value="critica">A4</option>
+                    <option value="baja">A5</option>
+                    <option value="media">B1</option>
+                    <option value="alta">B2</option>
+                    <option value="critica">B3</option>
+                    <option value="baja">B4</option>
+                    <option value="media">B5</option>
+                    <option value="alta">C1</option>
+                    <option value="critica">C2</option>
+                    <option value="alta">C3</option>
+                    <option value="critica">C4</option>
+                </select>
+            </div>
 
-    </form>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Descripción</label>
+                <textarea name="descripcion2" class="form-control" rows="3"></textarea>
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+                <a href="index.php" class="btn btn-outline-secondary">Regresar</a>
+                <button class="btn btn-primary">Enviar</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
 

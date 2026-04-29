@@ -22,7 +22,7 @@
 
 
 <div class="container text-center">
-    <a href="incidencias.php" class="btn btn-primary w-50 mx-auto d-block mb-3">Crear una incidencia</a>
+    <a href="detalla_incidencia.php" class="btn btn-primary w-50 mx-auto d-block mb-3">Crear una incidencia</a>
     <a href="detalla_incidencia.php" class="btn btn-outline-primary w-50 mx-auto d-block mb-3">Seguimiento de mi incidencia</a>
     <a href="login_tecnico.php" class="btn btn-secondary w-50 mx-auto d-block">Panel técnico</a>
     <a href="login_admin.php" class="btn btn-danger w-50 mx-auto d-block mt-3">
