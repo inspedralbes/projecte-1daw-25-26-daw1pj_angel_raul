@@ -1,0 +1,86 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Pàgina-1" id="SQCqjD5dT8MOkbHhJLE0">
+    <mxGraphModel dx="787" dy="821" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="LpJN7isigpKbviYF-zNA-27" edge="1" parent="1" source="LpJN7isigpKbviYF-zNA-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="LpJN7isigpKbviYF-zNA-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-33" edge="1" parent="1" source="LpJN7isigpKbviYF-zNA-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="LpJN7isigpKbviYF-zNA-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-13" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="&lt;div&gt;Alumno&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="30" x="53" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-20" edge="1" parent="1" source="LpJN7isigpKbviYF-zNA-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;endSize=17;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="66" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-35" edge="1" parent="1" source="LpJN7isigpKbviYF-zNA-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="LpJN7isigpKbviYF-zNA-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-14" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="&lt;div&gt;Profesor&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="30" x="51" y="417" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-39" edge="1" parent="1" source="LpJN7isigpKbviYF-zNA-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="LpJN7isigpKbviYF-zNA-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-42" edge="1" parent="1" source="LpJN7isigpKbviYF-zNA-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="LpJN7isigpKbviYF-zNA-36">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="658" />
+              <mxPoint x="190" y="830" />
+            </Array>
+            <mxPoint x="190" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-15" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="&lt;div&gt;Tecnico&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="30" x="52" y="628" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-49" edge="1" parent="1" source="LpJN7isigpKbviYF-zNA-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" target="LpJN7isigpKbviYF-zNA-46" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-17" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="80" width="120" x="243" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;Crear incidencia&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="273" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-21" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="listar incidencias propias" vertex="1">
+          <mxGeometry height="80" width="120" x="243" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-43" edge="1" parent="1" source="LpJN7isigpKbviYF-zNA-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="588.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-28" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;div&gt;listar todas las&amp;nbsp;&lt;/div&gt;&lt;div&gt;incidencias&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="302" y="548" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-29" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;div&gt;modificar datos&amp;nbsp;&lt;/div&gt;&lt;div&gt;de incidencia&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="302" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-31" edge="1" parent="1" source="LpJN7isigpKbviYF-zNA-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.008;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;" target="LpJN7isigpKbviYF-zNA-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-34" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;div&gt;ver estado de la&lt;/div&gt;&lt;div&gt;incidencia&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="243" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-36" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;div&gt;cerrar incidencias&lt;/div&gt;&lt;div&gt;ya resueltas&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="302" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-44" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;div&gt;ver incidencia&amp;nbsp;&lt;/div&gt;&lt;div&gt;usuario&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="560" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-46" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="notifica la incidencia" vertex="1">
+          <mxGeometry height="80" width="120" x="480" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="LpJN7isigpKbviYF-zNA-50" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="include" vertex="1">
+          <mxGeometry height="30" width="60" x="390" y="139" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
