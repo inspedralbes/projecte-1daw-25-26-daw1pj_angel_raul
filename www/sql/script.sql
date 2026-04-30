@@ -12,7 +12,8 @@ CREATE TABLE USUARIO(
     id_usuario INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(200) NOT NULL,
     email VARCHAR(200) NOT NULL UNIQUE,
-    rol ENUM('usuario', 'tecnico', 'admin') NOT NULL
+    rol ENUM('usuario', 'tecnico', 'admin') NOT NULL,
+    codigo VARCHAR(50) UNIQUE NULL
 );
 
 CREATE TABLE INCIDENCIA(
