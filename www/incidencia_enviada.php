@@ -1,5 +1,11 @@
 <?php
 $numero = rand(10000, 99999);
+
+// CONEXIÓN BÁSICA A LA BASE DE DATOS
+$conexion = new mysqli("localhost", "root", "", "tu_base");
+
+// Insertar el número
+$conexion->query("INSERT INTO incidencias (numero) VALUES ($numero)");
 ?>
 <!DOCTYPE html>
 <html lang="es">

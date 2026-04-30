@@ -49,3 +49,8 @@ CREATE TABLE ACTUACION(
     FOREIGN KEY (id_incidencia) REFERENCES INCIDENCIA(num_incidencia),
     FOREIGN KEY (id_tecnico) REFERENCES USUARIO(id_usuario)
 );
+
+CREATE TABLE incidencias (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    numero INT NOT NULL
+);
