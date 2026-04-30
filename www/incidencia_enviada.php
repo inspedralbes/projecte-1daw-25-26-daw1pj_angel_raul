@@ -1,3 +1,6 @@
+<?php
+$numero = rand(10000, 99999);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,27 +25,18 @@
 <body class="bg-light">
 
     <div class="container">
-<div class="card p-4 shadow-sm mx-auto d-flex justify-content-center text-center" 
-     style="max-width: 800px; min-height: 400px;">
+        <div class="card p-4 shadow-sm mx-auto text-center" style="max-width: 600px;">
 
-    <h3 class="fw-bold mb-4" style="font-size: 2rem;">¡Tu incidencia ha sido registrada!</h3>
+            <p class="fw-semibold mb-3">Tu número de incidencia es:</p>
 
-    <p class="mb-4" style="font-size: 1.3rem;">
-        Tu número de incidencia es:
-    </p>
-
-    <span class="fw-bold text-primary" style="font-size: 2.5rem;">
-        00000
-    </span>
-
-</div>
-
+            <p class="fw-bold text-primary" style="font-size: 1.8rem;">
+                <?php echo $numero; ?>
             </p>
-            </a>
+
+            <a href="index.php" class="btn btn-primary">Volver al inicio</a>
 
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
