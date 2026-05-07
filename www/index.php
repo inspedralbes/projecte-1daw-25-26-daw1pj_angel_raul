@@ -1,34 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=H1, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/index.css">
-    <title>Pagina Principal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANGEL SUPPORT – Panel Principal</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
-<body>
-  <header class="bg-primary text-white text-center py-4 shadow-sm mb-4">
-    <h1 class="fw-bold m-0">RANGEL SUPPORT</h1>
+
+<body class="bg-light">
+
+<header class="bg-primary text-white py-3 shadow-sm">
+    <div class="container">
+        <h2 class="fw-bold m-0">Panel Principal</h2>
+    </div>
 </header>
 
-
- <h2 class="text-center fw-semibold mb-4">¿Qué hacemos hoy, Instituto?</h2>
-
-
-<div class="text-center mb-4">
-    <img src="IMG/LogoEmpresa.jpg" class="img-fluid" style="max-width: 200px;" alt="Logo de Empresa">
+<div class="container text-center mt-5">
+    <img src="IMG/LogoEmpresa.jpg" class="img-fluid mb-4" style="max-height: 150px;" alt="Logo">
 </div>
 
+<div class="container text-center mt-4">
+    <h3 class="fw-semibold">¿Qué hacemos hoy, Instituto?</h3>
+</div>
 
-<div class="container text-center">
-    <a href="detalla_incidencia.php" class="btn btn-primary w-50 mx-auto d-block mb-3">Crear una incidencia</a>
-    <a href="./login_incidencia.php" class="btn btn-outline-primary w-50 mx-auto d-block mb-3">Seguimiento de mi incidencia</a>
-    <a href="login_tecnico.php" class="btn btn-secondary w-50 mx-auto d-block">Panel técnico</a>
-    <a href="login_admin.php" class="btn btn-danger w-50 mx-auto d-block mt-3">
-    Entrar como administrador
-</a>
+<div class="container mt-5">
+    <div class="row g-4 justify-content-center">
 
+        <div class="col-md-4">
+            <a href="detalla_incidencia.php" class="btn btn-primary w-100 py-4 d-flex flex-column align-items-center">
+                <i class="bi bi-plus-circle-fill fs-1 mb-2"></i>
+                <span class="fw-bold">Crear una incidencia</span>
+                <small class="text-white-50">Reporta un problema rápidamente</small>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="login_incidencia.php" class="btn btn-outline-primary w-100 py-4 d-flex flex-column align-items-center">
+                <i class="bi bi-search fs-1 mb-2"></i>
+                <span class="fw-bold">Seguimiento</span>
+                <small class="text-muted">Consulta el estado de tu incidencia</small>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="login_tecnico.php" class="btn btn-secondary w-100 py-4 d-flex flex-column align-items-center">
+                <i class="bi bi-tools fs-1 mb-2"></i>
+                <span class="fw-bold">Panel técnico</span>
+                <small class="text-white-50">Acceso para técnicos</small>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="login_admin.php" class="btn btn-danger w-100 py-4 d-flex flex-column align-items-center">
+                <i class="bi bi-shield-lock-fill fs-1 mb-2"></i>
+                <span class="fw-bold">Administrador</span>
+                <small class="text-white-50">Gestión avanzada del sistema</small>
+            </a>
+        </div>
+
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
