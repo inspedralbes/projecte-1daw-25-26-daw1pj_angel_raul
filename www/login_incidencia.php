@@ -30,6 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Buscar Incidencia</title>
 </head>
 <body class="bg-light">
+    <header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
+    <div class="d-flex align-items-center">
+        <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height: 40px;">
+    </div>
+    <a href="index.php" class="btn btn-outline-primary d-flex align-items-center">
+        <i class="bi bi-house-door-fill" style="font-size: 1.3rem;"></i>
+    </a>
+</header>
 
 <div class="d-flex justify-content-center align-items-center" style="min-height: 75vh;">
 
