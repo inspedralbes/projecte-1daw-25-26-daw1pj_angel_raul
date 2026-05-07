@@ -67,11 +67,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                        class="form-control <?= !empty($error) ? 'is-invalid' : '' ?>"
                        placeholder="Código">
             </div>
-            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+            <button type="submit" class="btn btn-primary w-100"><i class="bi bi-shield-lock me-1"></i>Entrar como tecnico</button>
         </form>
     </fieldset>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html> 
