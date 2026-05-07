@@ -17,7 +17,7 @@
         <i class="bi bi-house-door-fill" style="font-size: 1.3rem;"></i>
     </a>
 </header>
-
+ 
 <h1 class="text-center fw-bold my-4">INCIDENCIA ENVIADA</h1>
 
 <div class="container">

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  </head>
+  </head> 
   <body>
     <header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
     <div class="d-flex align-items-center">

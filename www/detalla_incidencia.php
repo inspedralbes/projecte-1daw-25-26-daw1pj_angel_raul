@@ -27,7 +27,7 @@
 
             <label class="form-label">Título</label>
             <input type="text" class="form-control mb-3" name="titulo" placeholder="Títol de la incidència" required>
-
+ 
             <label class="form-label">Aula</label>
             <select class="form-select mb-3" name="aula" required>
                 <option value="" disabled selected hidden>- Selecciona -</option>
