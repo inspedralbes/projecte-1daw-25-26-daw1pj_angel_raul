@@ -12,15 +12,15 @@
 <header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
     <div class="d-flex align-items-center">
         <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height: 40px;">
+        <span class="ms-3 fw-bold fs-4 text-dark">Registrar incidencia</span>
     </div>
+
     <a href="index.php" class="btn btn-outline-primary d-flex align-items-center">
         <i class="bi bi-house-door-fill" style="font-size: 1.3rem;"></i>
     </a>
 </header>
 
-<h1 class="text-center fw-bold my-4">REGISTRAR INCIDENCIA</h1>
-
-<div class="container">
+<div class="container mt-5">
     <div class="card p-4 shadow-sm mx-auto" style="max-width: 600px;">
 
         <form action="guardar_incidencia.php" method="POST">

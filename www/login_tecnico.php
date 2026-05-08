@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION['id_usuario'] = $tecnico['id_usuario'];
             $_SESSION['nombre']     = $tecnico['nombre'];
             $_SESSION['rol']        = $tecnico['rol'];
-            header("Location: panel_tecnico.php");
+            header("Location: listado_incidencia.php");
             exit();
         } else {
             $error = "Código incorrecto";
@@ -47,9 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </a>
 </header>
 
-<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-    <fieldset class="border rounded p-4 shadow-lg" style="max-width: 400px; width: 100%; background: white;">
-        <legend class="float-none w-auto px-3 fw-bold text-primary">
+<div class="d-flex justify-content-center align-items-center bg-light" style="min-height: 80vh;">
+    <fieldset class="border rounded p-4 shadow-lg bg-white" 
+              style="max-width: 400px; width: 100%; background: #f1f1f1;">
+        
+        <legend class="float-none w-auto px-3 fw-bold text-secondary">
             Identifícate, por favor
         </legend>
 
@@ -62,15 +64,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <form method="POST">
             <div class="mb-3">
-                <label for="codigo" class="form-label">Introduce el código de verificación</label>
+                <label for="codigo" class="form-label text-secondary">Introduce el código de verificación</label>
                 <input type="password" name="codigo" id="codigo"
                        class="form-control <?= !empty($error) ? 'is-invalid' : '' ?>"
                        placeholder="Código">
             </div>
-            <button type="submit" class="btn btn-primary w-100"><i class="bi bi-shield-lock me-1"></i>Entrar como tecnico</button>
+
+            <button type="submit" class="btn btn-secondary w-100">
+                <i class="bi bi-shield-lock me-1"></i>Entrar como técnico
+            </button>
         </form>
     </fieldset>
 </div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
