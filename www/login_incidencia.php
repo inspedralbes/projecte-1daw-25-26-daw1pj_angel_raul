@@ -25,15 +25,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Buscar Incidencia</title>
+    <title>Seguimiento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
+
 <body class="bg-light">
-    <header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
+
+<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
     <div class="d-flex align-items-center">
         <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height: 40px;">
+        <span class="ms-3 fw-bold fs-4 text-primary">SEGUIMIENTO</span>
     </div>
+
     <a href="index.php" class="btn btn-outline-primary d-flex align-items-center">
         <i class="bi bi-house-door-fill" style="font-size: 1.3rem;"></i>
     </a>
@@ -64,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <form method="POST">
                 <div class="mb-3">
                     <label class="form-label">Número de incidencia</label>
-                  <input type="text" name="codigo" class="form-control" placeholder="Ejemplo: 0000">
+                    <input type="text" name="codigo" class="form-control" placeholder="Ejemplo: 0000">
                 </div>
                 <button type="submit" class="btn btn-outline-primary w-100">Buscar</button>
             </form>
@@ -73,5 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php endif; ?>
 
 </div>
+
 </body>
 </html>
