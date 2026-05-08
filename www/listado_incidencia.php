@@ -1,3 +1,11 @@
+<?php
+include "conexion.php";
+
+$sql = "SELECT * FROM INCIDENCIA";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$incidencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,20 +61,42 @@
                         </tr>
                     </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>PC no enciende</td>
-                            <td>Informática</td>
-                            <td><span class="badge bg-warning text-dark">Abierta</span></td>
-                            <td><span class="badge bg-danger">Alta</span></td>
-                            <td>2026-05-08</td>
-                            <td>
-                                <button class="btn btn-sm btn-primary">Gestionar</button>
-                                <button class="btn btn-sm btn-danger">Eliminar</button>
-                            </td>
-                        </tr>
-                    </tbody>
+               <tbody>
+<?php foreach ($incidencias as $inc): ?>
+    <tr>
+        <td><?= $inc['num_incidencia'] ?></td>
+        <td><?= $inc['asunto'] ?></td>
+        <td><?= $inc['departamento_id'] ?></td>
+
+        <td>
+            <?php if ($inc['estado'] === 'Abierta'): ?>
+                <span class="badge bg-warning text-dark">Abierta</span>
+            <?php elseif ($inc['estado'] === 'En proceso'): ?>
+                <span class="badge bg-info text-dark">En proceso</span>
+            <?php else: ?>
+                <span class="badge bg-success">Cerrada</span>
+            <?php endif; ?>
+        </td>
+
+        <td>
+            <?php if ($inc['id_prioridad'] == 1): ?>
+                <span class="badge bg-danger">Alta</span>
+            <?php elseif ($inc['id_prioridad'] == 2): ?>
+                <span class="badge bg-warning text-dark">Media</span>
+            <?php else: ?>
+                <span class="badge bg-success">Baja</span>
+            <?php endif; ?>
+        </td>
+
+        <td><?= $inc['fecha_inicio'] ?></td>
+
+        <td>
+            <button class="btn btn-sm btn-primary" onclick="mostrarTarjeta(<?= $inc['num_incidencia'] ?>)">Gestionar</button>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</tbody>
+
 
                 </table>
 
@@ -75,6 +105,75 @@
 
     </div>
 </div>
+
+
+<div id="tarjetaGestion" class="card shadow p-3"
+     style="display:none; position:fixed; bottom:20px; right:20px; width:300px; z-index:999;">
+
+    <h5 class="fw-bold">Gestionar incidencia</h5>
+    <p>ID: <span id="idIncidencia"></span></p>
+
+    
+    <label class="fw-bold">Estado</label>
+    <select id="estado" class="form-select mb-2">
+        <option value="Abierta">Abierta</option>
+        <option value="En proceso">En proceso</option>
+        <option value="Cerrada">Cerrada</option>
+    </select>
+
+    <label class="fw-bold">Prioridad</label>
+    <select id="prioridad" class="form-select mb-2">
+        <option value="1">Alta</option>
+        <option value="2">Media</option>
+        <option value="3">Baja</option>
+    </select>
+
+    <!-- COMENTARIO -->
+    <textarea id="comentario" class="form-control mb-2" placeholder="Escribe un comentario..."></textarea>
+
+    <button class="btn btn-success w-100 mb-2" onclick="guardarGestion()">Guardar cambios</button>
+    <button class="btn btn-danger w-100" onclick="cerrarTarjeta()">Cerrar</button>
+</div>
+
+<script>
+function mostrarTarjeta(id) {
+    document.getElementById("tarjetaGestion").style.display = "block";
+    document.getElementById("idIncidencia").innerText = id;
+}
+
+function cerrarTarjeta() {
+    document.getElementById("tarjetaGestion").style.display = "none";
+}
+
+function guardarGestion() {
+    let id = document.getElementById("idIncidencia").innerText;
+    let comentario = document.getElementById("comentario").value;
+    let estado = document.getElementById("estado").value;
+    let prioridad = document.getElementById("prioridad").value;
+
+    let formData = new FormData();
+    formData.append("id", id);
+    formData.append("comentario", comentario);
+    formData.append("estado", estado);
+    formData.append("prioridad", prioridad);
+
+    fetch("guardar_gestion.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(r => r.text())
+    .then(res => {
+        if (res === "OK") {
+            alert("Cambios guardados");
+            cerrarTarjeta();
+            location.reload(); 
+        } else {
+            alert("Error al guardar");
+        }
+    });
+}
+</script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
