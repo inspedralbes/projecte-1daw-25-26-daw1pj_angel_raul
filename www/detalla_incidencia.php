@@ -1,50 +1,51 @@
+<?php
+include "conexion.php";
+$mensaje = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $stmt = $conn->prepare("INSERT INTO INCIDENCIA (asunto, descripcion, departamento_id, id_prioridad, estado) VALUES (?, ?, ?, ?, 'Abierta')");
+    $stmt->execute([$_POST['titulo'], $_POST['descripcion'], $_POST['aula'], $_POST['prioridad']]);
+    $mensaje = "Incidencia creada correctamente";
+}
+?>
 <!DOCTYPE html>
-<html lang="es"> 
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Crear incidencia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<body>
+<div class="container mt-4" style="max-width: 600px;">
+    <h2 class="text-center text-primary fw-bold mb-4">Crear incidencia</h2>
 
-<body> 
+    <?php if ($mensaje): ?>
+        <div class="alert alert-success"><?= $mensaje ?></div>
+    <?php endif; ?>
 
-<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
-    <div class="d-flex align-items-center">
-        <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height: 40px;">
-        <span class="ms-3 fw-bold fs-4 text-primary">SEGUIMIENTO</span>
-    </div>
+    <form method="POST">
+        <input   type="text" name="titulo"      class="form-control mb-3" placeholder="Título" required>
 
-    <a href="index.php" class="btn btn-outline-primary d-flex align-items-center">
-        <i class="bi bi-house-door-fill" style="font-size: 1.3rem;"></i>
-    </a>
-</header>
-
-<div class="container mt-4">
-
-    <h2 class="text-primary fw-bold mb-4 text-center">Detalla tu incidencia</h2>
-
-    <form action="guardar_incidencia.php" method="POST">
-
-        <label class="form-label">Título</label>
-        <input type="text" name="titulo" class="form-control mb-3" required>
-
-        <label class="form-label">Aula</label>
         <select name="aula" class="form-select mb-3" required>
-            <option value="">Selecciona</option>
-            <option value="INF10">INF10</option>
-            <option value="INF11">INF11</option>
-            <option value="INF12">INF12</option>
-            <option value="Mediateca">Mediateca</option>
+            <option value="">Departamento</option>
+            <option value="1">Informática</option>
+            <option value="2">Secretaría</option>
+            <option value="3">Dirección</option>
+            <option value="4">Mediateca</option>
+            <option value="5">Mantenimiento</option>
         </select>
 
-        <label class="form-label">Descripción</label>
-        <textarea name="descripcion" class="form-control mb-3" required></textarea>
+        <select name="prioridad" class="form-select mb-3" required>
+            <option value="">Prioridad</option>
+            <option value="1">Alta</option>
+            <option value="2">Media</option>
+            <option value="3">Baja</option>
+        </select>
 
-        <button type="submit" class="btn btn-primary w-100">Enviar incidencia</button>
+        <textarea name="descripcion" class="form-control mb-3" placeholder="Descripción" required></textarea>
 
+        <button type="submit" class="btn btn-primary w-100">Enviar</button>
     </form>
-
 </div>
-
 </body>
-</html>
+</html>   h
