@@ -7,13 +7,14 @@ $stmt->execute();
 $incidencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
@@ -25,13 +26,12 @@ $incidencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <a href="index.php" class="btn btn-outline-primary d-flex align-items-center">
-        <i class="bi bi-house-door-fill" style="font-size: 1.3rem;"></i>
+        <i class="bi bi-house-door-fill fs-4"></i>
     </a>
 </header>
 
-
-<div class="text-center">
-    <label for="tecnico" class="form-label fw-bold fs-5 mt-4">Selecciona tu nombre</label>
+<div class="text-center mt-4">
+    <label for="tecnico" class="form-label fw-bold fs-5">Selecciona tu nombre</label>
 
     <select id="tecnico" class="form-select w-25 mx-auto p-2">
         <option value="">Seleccionar</option>
@@ -45,7 +45,7 @@ $incidencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="container mt-4">
     <div class="w-75 mx-auto">
 
-        <div class="card shadow-sm bg-white">
+        <div class="card shadow-sm">
             <div class="card-body">
 
                 <table class="table table-striped table-hover text-center align-middle">
