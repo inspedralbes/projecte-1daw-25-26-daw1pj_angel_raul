@@ -17,5 +17,5 @@ $numero = $_GET['numero'] ?? '?';
         <a href="index.php" class="btn btn-outline-primary mt-2">Volver al inicio</a>
     </div>
 </div>
-</body>
+</body>   
 </html>
