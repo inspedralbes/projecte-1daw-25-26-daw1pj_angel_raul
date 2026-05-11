@@ -1,12 +1,10 @@
 <?php
 include "conexion.php";
-$mensaje = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $stmt = $conn->prepare("INSERT INTO INCIDENCIA (asunto, descripcion, departamento_id, id_prioridad, estado) VALUES (?, ?, ?, ?, 'Abierta')");
-    $stmt->execute([$_POST['titulo'], $_POST['descripcion'], $_POST['aula'], $_POST['prioridad']]);
-    $numero = $conn->lastInsertId();
-    header("Location: guardar_incidencia.php?numero=" . $numero);
+    $stmt = $conn->prepare("INSERT INTO INCIDENCIA (asunto, descripcion, departamento_id, estado) VALUES (?, ?, ?, 'Abierta')");
+    $stmt->execute([$_POST['titulo'], $_POST['descripcion'], $_POST['aula']]);
+    header("Location: guardar_incidencia.php?numero=" . $conn->lastInsertId());
     exit();
 }
 ?>
@@ -31,13 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <option value="3">Dirección</option>
             <option value="4">Mediateca</option>
             <option value="5">Mantenimiento</option>
-        </select>
-
-        <select name="prioridad" class="form-select mb-3" required>
-            <option value="">Prioridad</option>
-            <option value="1">Alta</option>
-            <option value="2">Media</option>
-            <option value="3">Baja</option>
         </select>
 
         <textarea name="descripcion" class="form-control mb-3" placeholder="Descripción" required></textarea>
