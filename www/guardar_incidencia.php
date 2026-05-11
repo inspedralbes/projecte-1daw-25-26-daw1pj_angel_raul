@@ -1,25 +1,21 @@
 <?php
-include "conexion.php"; 
-
-$titulo = $_POST["titulo"];
-$aula = $_POST["aula"];
-$descripcion = $_POST["descripcion"];
-
-$sql = $conn->prepare("
-    INSERT INTO INCIDENCIA (asunto, descripcion)
-    VALUES (?, ?)
-");
-$sql->execute([$titulo, $descripcion]); 
-
-$numero = $conn->lastInsertId();
+$numero = $_GET['numero'] ?? '?';
 ?>
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><title>Incidencia creada</title></head>
-<body>
-
-<h2>Tu número de incidencia es:</h2>
-<h1><?php echo $numero; ?></h1>
-
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Incidencia creada</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5" style="max-width: 400px;">
+    <div class="card p-4 text-center shadow-sm">
+        <p class="text-muted">Tu número de incidencia es</p>
+        <h1 class="text-primary fw-bold" style="font-size: 5rem;"><?= $numero ?></h1>
+        <p class="text-muted">Apunta este número para hacer seguimiento</p>
+        <a href="index.php" class="btn btn-outline-primary mt-2">Volver al inicio</a>
+    </div>
+</div>
 </body>
 </html>

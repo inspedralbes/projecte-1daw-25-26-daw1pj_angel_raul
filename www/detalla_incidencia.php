@@ -5,7 +5,9 @@ $mensaje = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt = $conn->prepare("INSERT INTO INCIDENCIA (asunto, descripcion, departamento_id, id_prioridad, estado) VALUES (?, ?, ?, ?, 'Abierta')");
     $stmt->execute([$_POST['titulo'], $_POST['descripcion'], $_POST['aula'], $_POST['prioridad']]);
-    $mensaje = "Incidencia creada correctamente";
+    $numero = $conn->lastInsertId();
+    header("Location: guardar_incidencia.php?numero=" . $numero);
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -19,12 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <div class="container mt-4" style="max-width: 600px;">
     <h2 class="text-center text-primary fw-bold mb-4">Crear incidencia</h2>
 
-    <?php if ($mensaje): ?>
-        <div class="alert alert-success"><?= $mensaje ?></div>
-    <?php endif; ?>
-
     <form method="POST">
-        <input   type="text" name="titulo"      class="form-control mb-3" placeholder="Título" required>
+        <input type="text" name="titulo" class="form-control mb-3" placeholder="Título" required>
 
         <select name="aula" class="form-select mb-3" required>
             <option value="">Departamento</option>
@@ -43,9 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </select>
 
         <textarea name="descripcion" class="form-control mb-3" placeholder="Descripción" required></textarea>
-
         <button type="submit" class="btn btn-primary w-100">Enviar</button>
     </form>
 </div>
 </body>
-</html>   h
+</html>
