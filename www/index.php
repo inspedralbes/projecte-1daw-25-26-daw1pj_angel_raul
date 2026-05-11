@@ -56,10 +56,10 @@
                 <span class="text-white-50">Gestión avanzada del sistema</span>
             </a>
         </div>
-
+ 
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html> 

@@ -1,5 +1,5 @@
 <?php
-include "conexion.php";
+include "conexion.php"; 
 
 $titulo = $_POST["titulo"];
 $aula = $_POST["aula"];
@@ -9,7 +9,7 @@ $sql = $conn->prepare("
     INSERT INTO INCIDENCIA (asunto, descripcion)
     VALUES (?, ?)
 ");
-$sql->execute([$titulo, $descripcion]);
+$sql->execute([$titulo, $descripcion]); 
 
 $numero = $conn->lastInsertId();
 ?>
