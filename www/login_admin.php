@@ -1,28 +1,21 @@
 <?php
 session_start();
 include "conexion.php";
-
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $codigo = trim($_POST['codigo'] ?? '');
+    $stmt = $conn->prepare("SELECT id_usuario, nombre, rol FROM USUARIO WHERE codigo = ? AND rol = 'admin' LIMIT 1");
+    $stmt->execute([trim($_POST['codigo'] ?? '')]);
+    $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($codigo === '') {
-        $error = "Introduce un código";
+    if ($admin) {
+        $_SESSION['id_usuario'] = $admin['id_usuario'];
+        $_SESSION['nombre']     = $admin['nombre'];
+        $_SESSION['rol']        = $admin['rol'];
+        header("Location: panel_admin.php");
+        exit();
     } else {
-        $stmt = $conn->prepare("SELECT id_usuario, nombre, rol FROM USUARIO WHERE codigo = ? AND rol = 'admin' LIMIT 1");
-        $stmt->execute([$codigo]);
-        $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($admin) {
-            $_SESSION['id_usuario'] = $admin['id_usuario'];
-            $_SESSION['nombre']     = $admin['nombre'];
-            $_SESSION['rol']        = $admin['rol'];
-            header("Location: panel_admin.php");
-            exit();
-        } else {
-            $error = "Código incorrecto";
-        }
+        $error = "Código incorrecto";
     }
 }
 ?>
@@ -52,18 +45,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             Identificación de administrador
         </legend>
 
-        <?php if (!empty($error)): ?>
+        <?php if ($error): ?>
             <div class="alert alert-danger text-center">
                 <i class="bi bi-x-circle me-1"></i>
-                <?= htmlspecialchars($error) ?>
+                <?= $error ?>
             </div>
         <?php endif; ?>
 
         <form method="POST">
             <div class="mb-3">
-                <label for="codigo" class="form-label">Código de verificación</label>
-                <input type="password" name="codigo" id="codigo"
-                       class="form-control <?= !empty($error) ? 'is-invalid' : '' ?>"
+                <label class="form-label">Código de verificación</label>
+                <input type="password" name="codigo"
+                       class="form-control <?= $error ? 'is-invalid' : '' ?>"
                        placeholder="Introduce tu código" autofocus>
             </div>
             <button type="submit" class="btn btn-danger w-100">
@@ -74,4 +67,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </div>
 
 </body>
-</html> 
+</html>
