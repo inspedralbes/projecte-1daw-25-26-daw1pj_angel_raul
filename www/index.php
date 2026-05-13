@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Principal</title>
-
+    <script src="saludo.js"></script>
+    <link rel="stylesheet" href="responsive.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
@@ -12,10 +13,13 @@
 <body class="bg-light">
 
 <header class="bg-primary text-white py-3 shadow-sm">
+
     <div class="container">
         <h2 class="fw-bold m-0">Panel Principal</h2>
+        <p id="saludo" class="m-0"></p>
     </div>
 </header>
+
 
 <div class="container text-center mt-5">
 
