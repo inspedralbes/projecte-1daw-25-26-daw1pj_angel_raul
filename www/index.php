@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RANGEL SUPPORT – Panel Principal</title>
+    <title>Panel Principal</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -26,41 +26,45 @@
     <div class="row g-4 justify-content-center">
 
         <div class="col-md-4">
-            <a href="detalla_incidencia.php" class="btn btn-primary w-100 py-4 d-flex flex-column align-items-center">
-                <i class="bi bi-plus-circle-fill fs-1 mb-2"></i>
+            <a href="detalla_incidencia.php" class="btn btn-primary w-100 py-4 d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-plus-circle-fill fs-1"></i>
                 <span class="fw-bold">Crear una incidencia</span>
-                <span class="text-white-50">Reporta un problema rápidamente</span>
+                <small class="text-white-50">Reporta un problema rápidamente</small>
             </a>
         </div>
 
         <div class="col-md-4">
-            <a href="login_incidencia.php" class="btn btn-outline-primary w-100 py-4 d-flex flex-column align-items-center">
-                <i class="bi bi-search fs-1 mb-2"></i>
+            <a href="login_incidencia.php" class="btn btn-outline-primary w-100 py-4 d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-search fs-1"></i>
                 <span class="fw-bold">Seguimiento</span>
-                <span class="text-muted">Consulta el estado de tu incidencia</span>
+                <small class="text-muted">Consulta el estado de tu incidencia</small>
             </a>
         </div>
 
         <div class="col-md-4">
-            <a href="login_tecnico.php" class="btn btn-secondary w-100 py-4 d-flex flex-column align-items-center">
-                <i class="bi bi-tools fs-1 mb-2"></i>
+            <a href="login_tecnico.php" class="btn btn-secondary w-100 py-4 d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-tools fs-1"></i>
                 <span class="fw-bold">Panel técnico</span>
-                <span class="text-white-50">Acceso para técnicos</span>
+                <small class="text-white-50">Acceso para técnicos</small>
             </a>
         </div>
 
         <div class="col-md-4">
-            <a href="login_admin.php" class="btn btn-danger w-100 py-4 d-flex flex-column align-items-center">
-                <i class="bi bi-shield-lock-fill fs-1 mb-2"></i>
+            <a href="login_admin.php" class="btn btn-danger w-100 py-4 d-flex flex-column align-items-center gap-1">
+                <i class="bi bi-shield-lock-fill fs-1"></i>
                 <span class="fw-bold">Administrador</span>
-                <span class="text-white-50">Gestión avanzada del sistema</span>
+                <small class="text-white-50">Gestión avanzada del sistema</small>
             </a>
         </div>
- 
+
     </div>
 </div>
+<footer>
+    <div class="text-center py-3 text-muted">
+    <p>Angel Domínguez, Raul Diaz.</p>
+    </div>
+</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
-</html> 
- 
+</html>
