@@ -23,8 +23,8 @@ function badge($value, $map) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Tecnico</title>
-<link rel="stylesheet" href="responsive.css?v=100000">
+    <title data-key="panel_tecnico">Panel Técnico</title>
+    <link rel="stylesheet" href="responsive.css?v=100000">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
@@ -34,7 +34,7 @@ function badge($value, $map) {
 <header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
     <div class="d-flex align-items-center">
         <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height:40px;">
-        <span class="ms-3 fw-bold fs-4 text-primary">Panel Técnico</span>
+        <span class="ms-3 fw-bold fs-4 text-primary" data-key="panel_tecnico">Panel Técnico</span>
     </div>
     <a href="index.php" class="btn btn-outline-primary">
         <i class="bi bi-house-door-fill fs-4"></i>
@@ -44,11 +44,11 @@ function badge($value, $map) {
 <div class="container mt-4">
 
     <div class="card shadow-sm p-4 mx-auto mb-4 text-center" style="max-width:400px;">
-        <h5 class="fw-bold mb-3">¿Quién eres?</h5>
+        <h5 class="fw-bold mb-3" data-key="quien_eres">¿Quién eres?</h5>
 
         <form method="GET">
             <select name="tecnico" class="form-select" onchange="this.form.submit()">
-                <option value="">Selecciona tu nombre</option>
+                <option value="" data-key="selecciona_nombre">Selecciona tu nombre</option>
 
                 <?php foreach ($tecnicos as $t): ?>
                     <option value="<?= $t['id_usuario'] ?>" <?= $id_tecnico == $t['id_usuario'] ? 'selected' : '' ?>>
@@ -68,7 +68,12 @@ function badge($value, $map) {
             <table class="table table-striped table-hover text-center align-middle">
                 <thead class="table-primary">
                     <tr>
-                        <th>ID</th><th>Asunto</th><th>Estado</th><th>Prioridad</th><th>Fecha</th><th>Acción</th>
+                        <th>ID</th>
+                        <th data-key="asunto">Asunto</th>
+                        <th data-key="estado">Estado</th>
+                        <th data-key="prioridad">Prioridad</th>
+                        <th data-key="fecha">Fecha</th>
+                        <th data-key="accion">Acción</th>
                     </tr>
                 </thead>
 
@@ -99,7 +104,7 @@ function badge($value, $map) {
 
                         <td>
                             <a href="gestionar_incidencia.php?id=<?= $i['num_incidencia'] ?>" 
-                               class="btn btn-sm btn-primary">
+                               class="btn btn-sm btn-primary" data-key="gestionar_incidencia">
                                Gestionar
                             </a>
                         </td>
@@ -116,11 +121,15 @@ function badge($value, $map) {
     <?php endif; ?>
 
 </div>
+
 <footer>
     <div class="text-center py-3 text-muted">
-    <p>Angel Domínguez, Raul Diaz.</p>
+        <p data-key="creditos">Angel Domínguez, Raul Diaz.</p>
     </div>
 </footer>
+
+<!-- RUTA CORRECTA -->
+<script src="JS/idioma.js"></script>
 
 </body>
 </html>

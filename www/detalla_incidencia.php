@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear incidencia</title>
-<link rel="stylesheet" href="responsive.css?v=100000">
+    <title data-key="detalla_incidencia">Detalla tu incidencia</title>
+    <link rel="stylesheet" href="responsive.css?v=100000">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
     <div class="d-flex align-items-center">
         <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height:40px;">
-        <span class="fw-bold text-primary ms-3">Detalla tu incidencia</span>
+        <span class="fw-bold text-primary ms-3" data-key="detalla_incidencia">Detalla tu incidencia</span>
     </div>
 
     <a href="index.php" class="btn btn-outline-primary">
@@ -50,19 +50,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <form method="POST">
 
             <input type="text" name="titulo" class="form-control mb-3"
-                   placeholder="Título" required>
+                   placeholder="Título" data-key="ph_titulo" required>
 
             <select name="aula" class="form-select mb-3" required>
-                <option value="" disabled selected>Selecciona un departamento</option>
+                <option value="" disabled selected data-key="sel_departamento">Selecciona un departamento</option>
                 <?php foreach ([1=>"Informática",2=>"Secretaría",3=>"Dirección",4=>"Mediateca",5=>"Mantenimiento"] as $id=>$dep): ?>
                     <option value="<?= $id ?>"><?= $dep ?></option>
                 <?php endforeach; ?>
             </select>
 
             <textarea name="descripcion" class="form-control mb-3"
-                      placeholder="Descripción" required></textarea>
+                      placeholder="Descripción" data-key="ph_descripcion" required></textarea>
 
-            <button class="btn btn-primary w-100">Enviar</button>
+            <button class="btn btn-primary w-100" data-key="btn_enviar">Enviar</button>
 
         </form>
 
@@ -71,9 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <footer>
     <div class="text-center py-3 text-muted">
-        <p>Angel Domínguez, Raul Diaz.</p>
+        <p data-key="creditos">Angel Domínguez, Raul Diaz.</p>
     </div>
 </footer>
+
+<!-- RUTA CORRECTA -->
+<script src="JS/idioma.js"></script>
 
 </body>
 </html>

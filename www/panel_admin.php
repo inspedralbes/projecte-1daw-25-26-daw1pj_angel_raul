@@ -16,7 +16,7 @@ $tecnicos    = $conn->query("SELECT * FROM USUARIO WHERE rol = 'tecnico'")->fetc
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Admin</title>
-<link rel="stylesheet" href="responsive.css?v=100000">
+    <link rel="stylesheet" href="responsive.css?v=100000">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
@@ -39,11 +39,11 @@ $tecnicos    = $conn->query("SELECT * FROM USUARIO WHERE rol = 'tecnico'")->fetc
                 <thead class="table-danger">
                     <tr>
                         <th>ID</th>
-                        <th>Asunto</th>
-                        <th>Estado</th>
-                        <th>Prioridad</th>
-                        <th>Técnico</th>
-                        <th>Acción</th>
+                        <th data-key="asunto">Asunto</th>
+                        <th data-key="estado">Estado</th>
+                        <th data-key="prioridad">Prioridad</th>
+                        <th data-key="tecnico">Técnico</th>
+                        <th data-key="accion">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,10 +95,14 @@ $tecnicos    = $conn->query("SELECT * FROM USUARIO WHERE rol = 'tecnico'")->fetc
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- RUTA CORRECTA -->
+<script src="JS/idioma.js"></script>
+
 </body>
 <footer>
     <div class="text-center py-3 text-muted">
-    <p>Angel Domínguez, Raul Diaz.</p>
+        <p>Angel Domínguez, Raul Diaz.</p>
     </div>
 </footer>
 

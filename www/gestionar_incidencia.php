@@ -33,8 +33,8 @@ $acts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestionar Incidencia</title>
-<link rel="stylesheet" href="responsive.css?v=100000">
+    <title data-key="gestionar_incidencia">Gestionar Incidencia</title>
+    <link rel="stylesheet" href="responsive.css?v=100000">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
@@ -43,7 +43,7 @@ $acts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 <header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
     <div class="d-flex align-items-center">
         <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height:40px;">
-        <span class="ms-3 fw-bold fs-4 text-secondary">Gestionar incidencia</span>
+        <span class="ms-3 fw-bold fs-4 text-secondary" data-key="gestionar_incidencia">Gestionar incidencia</span>
     </div>
     <a href="listado_incidencia.php" class="btn btn-outline-primary">
         <i class="bi bi-arrow-left fs-4"></i>
@@ -53,23 +53,23 @@ $acts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 <div class="container my-4" style="max-width:600px;">
 
     <?php if ($mensaje): ?>
-        <div class="alert alert-success text-center"><?= $mensaje ?></div>
+        <div class="alert alert-success text-center" data-key="guardar"><?= $mensaje ?></div>
     <?php endif; ?>
 
     <div class="card shadow-sm p-4 mb-4">
         <h5 class="fw-bold">Incidencia #<?= $inc['num_incidencia'] ?></h5>
-        <p><b>Asunto:</b> <?= $inc['asunto'] ?></p>
-        <p><b>Descripción:</b> <?= $inc['descripcion'] ?></p>
-        <p><b>Fecha:</b> <?= $inc['fecha_inicio'] ?></p>
+        <p><b data-key="asunto">Asunto</b>: <?= $inc['asunto'] ?></p>
+        <p><b data-key="descripcion">Descripción</b>: <?= $inc['descripcion'] ?></p>
+        <p><b data-key="fecha">Fecha</b>: <?= $inc['fecha_inicio'] ?></p>
     </div>
 
     <div class="card shadow-sm p-4 mb-4">
-        <h5 class="fw-bold mb-3">Actualizar</h5>
+        <h5 class="fw-bold mb-3" data-key="actualizar">Actualizar</h5>
 
         <form method="POST">
             <input type="hidden" name="id" value="<?= $inc['num_incidencia'] ?>">
 
-            <label class="form-label fw-bold">Estado</label>
+            <label class="form-label fw-bold" data-key="estado">Estado</label>
             <select name="estado" class="form-select mb-3">
                 <?php foreach (['Abierta','En proceso','Cerrada'] as $estado): ?>
                     <option value="<?= $estado ?>" <?= $inc['estado']===$estado?'selected':'' ?>>
@@ -78,7 +78,7 @@ $acts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             </select>
 
-            <label class="form-label fw-bold">Prioridad</label>
+            <label class="form-label fw-bold" data-key="prioridad">Prioridad</label>
             <select name="prioridad" class="form-select mb-3">
                 <?php foreach ([1=>'Alta',2=>'Media',3=>'Baja'] as $k=>$v): ?>
                     <option value="<?= $k ?>" <?= $inc['id_prioridad']==$k?'selected':'' ?>>
@@ -87,10 +87,10 @@ $acts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             </select>
 
-            <label class="form-label fw-bold">Comentario</label>
-            <textarea name="comentario" class="form-control mb-3" placeholder="Comentario..."></textarea>
+            <label class="form-label fw-bold" data-key="comentario">Comentario</label>
+            <textarea name="comentario" class="form-control mb-3" placeholder="Comentario..." data-key="comentario"></textarea>
 
-            <button class="btn btn-success w-100">Guardar</button>
+            <button class="btn btn-success w-100" data-key="guardar">Guardar</button>
         </form>
     </div>
 
@@ -105,9 +105,12 @@ $acts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
 <footer>
     <div class="text-center py-3 text-muted">
-        <p>Angel Domínguez, Raul Diaz.</p>
+        <p data-key="creditos">Angel Domínguez, Raul Diaz.</p>
     </div>
 </footer>
+
+<!-- RUTA CORRECTA -->
+<script src="JS/idioma.js"></script>
 
 </body>
 </html>

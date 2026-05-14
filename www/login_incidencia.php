@@ -28,8 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seguimiento</title>
-<link rel="stylesheet" href="responsive.css?v=100000">
+    <title data-key="seguimiento">Seguimiento</title>
+    <link rel="stylesheet" href="responsive.css?v=100000">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
     <div class="d-flex align-items-center">
         <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height:40px;">
-        <span class="ms-3 fw-bold fs-4 text-primary">SEGUIMIENTO</span>
+        <span class="ms-3 fw-bold fs-4 text-primary" data-key="seguimiento">SEGUIMIENTO</span>
     </div>
     <a href="index.php" class="btn btn-outline-primary">
         <i class="bi bi-house-door-fill fs-4"></i>
@@ -50,15 +50,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php if ($incidencia): ?>
 
         <div class="card p-4 shadow-sm" style="max-width:500px; width:100%;">
-            <h5 class="fw-bold">Incidencia #<?= $incidencia['num_incidencia'] ?></h5>
+            <h5 class="fw-bold">
+                <span data-key="incidencia">Incidencia</span> #<?= $incidencia['num_incidencia'] ?>
+            </h5>
 
-            <p><b>Asunto:</b> <?= $incidencia['asunto'] ?></p>
-            <p><b>Descripción:</b> <?= $incidencia['descripcion'] ?></p>
-            <p><b>Estado:</b> <?= $incidencia['estado'] ?></p>
+            <p><b data-key="asunto">Asunto</b>: <?= $incidencia['asunto'] ?></p>
+            <p><b data-key="descripcion">Descripción</b>: <?= $incidencia['descripcion'] ?></p>
+            <p><b data-key="estado">Estado</b>: <?= $incidencia['estado'] ?></p>
 
             <?php if ($comentarios): ?>
                 <hr>
-                <h6 class="fw-bold">Comentarios del técnico</h6>
+                <h6 class="fw-bold" data-key="comentarios_tecnico">Comentarios del técnico</h6>
 
                 <?php foreach ($comentarios as $c): ?>
                     <div class="border rounded p-2 mb-2">
@@ -69,27 +71,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <?php endif; ?>
 
-            <a href="login_incidencia.php" class="btn btn-primary mt-3 w-100">Buscar otra</a>
+            <a href="login_incidencia.php" class="btn btn-primary mt-3 w-100" data-key="buscar_otra">Buscar otra</a>
         </div>
 
     <?php else: ?>
 
         <div class="border rounded p-4 shadow-lg bg-white" style="max-width:400px; width:100%;">
 
-            <h5 class="fw-bold text-primary mb-3 text-center">Pon tu número de incidencia</h5>
+            <h5 class="fw-bold text-primary mb-3 text-center" data-key="pon_numero">Pon tu número de incidencia</h5>
 
             <?php if ($error): ?>
-                <div class="alert alert-danger text-center"><?= $error ?></div>
+                <div class="alert alert-danger text-center">
+                    <span data-key="incidencia_no_encontrada"><?= $error ?></span>
+                </div>
             <?php endif; ?>
 
             <form method="POST">
                 <div class="mb-3">
-                    <label class="form-label">Número de incidencia</label>
+                    <label class="form-label" data-key="numero_incidencia">Número de incidencia</label>
                     <input type="text" name="codigo" class="form-control"
                            value="<?= $numero_url ?>" placeholder="Ejemplo: 0000">
                 </div>
 
-                <button class="btn btn-outline-primary w-100">Buscar</button>
+                <button class="btn btn-outline-primary w-100" data-key="buscar">Buscar</button>
             </form>
 
         </div>
@@ -97,11 +101,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php endif; ?>
 
 </div>
+
 <footer>
     <div class="text-center py-3 text-muted">
-    <p>Angel Domínguez, Raul Diaz.</p>
+        <p data-key="creditos">Angel Domínguez, Raul Diaz.</p>
     </div>
 </footer>
+
+<!-- RUTA CORRECTA -->
+<script src="JS/idioma.js"></script>
 
 </body>
 </html>
