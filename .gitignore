@@ -1,3 +1,5 @@
 .db_data/
 ..db_data
 ...db_data
+.vendor/
+.composer.lock

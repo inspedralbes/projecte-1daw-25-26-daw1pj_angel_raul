@@ -1,4 +1,5 @@
 <?php
+require_once "logger.php";
 include "conexion.php";
 
 $id = $_GET['id'] ?? $_POST['id'] ?? null;
@@ -109,7 +110,6 @@ $acts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </footer>
 
-<!-- RUTA CORRECTA -->
 <script src="JS/idioma.js"></script>
 
 </body>

@@ -6,6 +6,8 @@ $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    require_once "logger.php"; // 👈 aquí
+
     $codigo = trim($_POST['codigo'] ?? '');
 
     if ($codigo === '') {

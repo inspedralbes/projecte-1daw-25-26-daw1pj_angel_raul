@@ -1,4 +1,6 @@
 <?php
+require_once "logger.php";
+include "conexion.php";
 $numero = $_GET['numero'] ?? '?';
 ?>
 <!DOCTYPE html>

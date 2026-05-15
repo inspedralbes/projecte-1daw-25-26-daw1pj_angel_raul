@@ -1,27 +1,22 @@
 <?php
+require_once "logger.php";
 include "conexion.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
     $departamento = $_POST['aula'] ?: null;
     $descripcion = $_POST['descripcion'] ?? '';
-
     $stmt = $conn->prepare("
         INSERT INTO INCIDENCIA (asunto, descripcion, departamento_id, estado)
         VALUES (?, ?, ?, 'Abierta')
     ");
-
     if (strlen($descripcion) >= 15) {
-
         $stmt->execute([
             $_POST['titulo'],
             $descripcion,
             $departamento
         ]);
-
         header("Location: guardar_incidencia.php?numero=" . $conn->lastInsertId());
         exit;
-
     } else {
         echo "<script>alert('La descripción debe tener al menos 15 caracteres.');</script>";
     }

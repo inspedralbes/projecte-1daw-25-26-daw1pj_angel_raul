@@ -1,5 +1,7 @@
 <?php
 include "conexion.php";
+require_once "logger.php";
+
 
 $id_tecnico = $_GET['tecnico'] ?? '';
 

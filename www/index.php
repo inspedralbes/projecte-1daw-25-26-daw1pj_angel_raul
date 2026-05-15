@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,24 +13,47 @@
 </head>
 
 <body class="bg-light">
-
 <header class="bg-primary text-white py-3 shadow-sm">
 
     <div class="container d-flex justify-content-between align-items-center">
 
-        <div>
-            <h2 class="fw-bold m-0" data-key="titulo_panel">Panel Principal</h2>
-            <p id="saludo" class="m-0"></p>
+        <!-- IZQUIERDA -->
+        <div class="d-flex align-items-center gap-3">
+
+            <i class="bi bi-house-door-fill fs-2"></i>
+
+            <div>
+                <h2 class="fw-bold m-0" data-key="titulo_panel">
+                    Panel Principal
+                </h2>
+                <p id="saludo" class="m-0"></p>
+            </div>
+
         </div>
 
-        <!-- BOTONES DE IDIOMA -->
-        <div>
-            <button id="btn-es" class="btn btn-light btn-sm me-2">ES</button>
-            <button id="btn-cat" class="btn btn-light btn-sm">CAT</button>
+
+        <div class="d-flex align-items-center gap-2">
+
+         
+            <a href="panel_estadisticas.php" class="btn btn-light btn-sm">
+                <i class="bi bi-graph-up"></i>
+                Stats
+            </a>
+
+            
+            <button id="btn-es" class="btn btn-light btn-sm">
+                ES
+            </button>
+
+            <button id="btn-cat" class="btn btn-light btn-sm">
+                CAT
+            </button>
+
         </div>
 
     </div>
 </header>
+
 
 
 <div class="container text-center mt-5">

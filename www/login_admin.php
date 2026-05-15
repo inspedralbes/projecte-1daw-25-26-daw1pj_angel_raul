@@ -5,6 +5,9 @@ include "conexion.php";
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    require_once "logger.php"; 
+
     $codigo = trim($_POST['codigo'] ?? '');
 
     $stmt = $conn->prepare("SELECT id_usuario, nombre, rol 
@@ -25,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     $error = "Código incorrecto";
-}
+}$error = "Código incorrecto";
 ?>
 <!DOCTYPE html>
 <html lang="es">

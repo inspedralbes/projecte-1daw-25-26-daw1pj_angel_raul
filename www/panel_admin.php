@@ -1,14 +1,15 @@
 <?php
+require_once "logger.php";
 include "conexion.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $tecnico = empty($_POST['tecnico']) ? null : $_POST['tecnico'];
+
     $conn->prepare("UPDATE INCIDENCIA SET id_tecnico = ? WHERE num_incidencia = ?")
          ->execute([$tecnico, $_POST['id']]);
 }
 
 $incidencias = $conn->query("SELECT * FROM INCIDENCIA")->fetchAll(PDO::FETCH_ASSOC);
-$tecnicos    = $conn->query("SELECT * FROM USUARIO WHERE rol = 'tecnico'")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="es">
