@@ -6,7 +6,7 @@ $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    require_once "logger.php"; 
+    require_once "logger.php";
 
     $codigo = trim($_POST['codigo'] ?? '');
 
@@ -43,41 +43,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body class="bg-light">
 
-<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
-    <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height:40px;">
-    <a href="index.php" class="btn btn-outline-primary">
-        <i class="bi bi-house-door-fill fs-4"></i>
+<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm" role="banner">
+    <img src="IMG/LogoEmpresa.jpg" alt="Logo de l'empresa" style="height:40px;">
+    <a href="index.php" class="btn btn-outline-primary" aria-label="Volver al inicio">
+        <i class="bi bi-house-door-fill fs-4" aria-hidden="true"></i>
     </a>
 </header>
 
-<div class="d-flex justify-content-center align-items-center" style="min-height:75vh;">
+<main class="d-flex justify-content-center align-items-center" style="min-height:75vh;">
     <div class="border rounded p-4 shadow-lg bg-white" style="max-width:400px; width:100%;">
 
-        <h5 class="fw-bold text-danger mb-3 text-center" data-key="identificacion_admin">Identificación de administrador</h5>
+        <h1 class="fw-bold text-danger mb-3 text-center fs-5" data-key="identificacion_admin">Identificación de administrador</h1>
 
         <?php if ($error): ?>
-            <div class="alert alert-danger text-center">
-                <i class="bi bi-x-circle me-1"></i>
+            <div class="alert alert-danger text-center" role="alert">
+                <i class="bi bi-x-circle me-1" aria-hidden="true"></i>
                 <span data-key="codigo_incorrecto"><?= $error ?></span>
             </div>
         <?php endif; ?>
 
-        <form method="POST">
+        <form method="POST" novalidate>
             <div class="mb-3">
-                <label class="form-label" data-key="codigo_verificacion">Código de verificación</label>
-                <input type="password" name="codigo"
+                <label for="codigo" class="form-label" data-key="codigo_verificacion">Código de verificación</label>
+                <input type="password" id="codigo" name="codigo"
                        class="form-control <?= $error ? 'is-invalid' : '' ?>"
-                       placeholder="Introduce tu código" data-key="codigo_verificacion" autofocus>
+                       placeholder="Introduce tu código" data-key="codigo_verificacion"
+                       autofocus required aria-required="true"
+                       <?= $error ? 'aria-describedby="error-msg"' : '' ?>>
+                <?php if ($error): ?>
+                    <div id="error-msg" class="visually-hidden"><?= $error ?></div>
+                <?php endif; ?>
             </div>
 
-            <button class="btn btn-danger w-100">
-                <i class="bi bi-shield-lock me-1"></i>
+            <button type="submit" class="btn btn-danger w-100">
+                <i class="bi bi-shield-lock me-1" aria-hidden="true"></i>
                 <span data-key="entrar_admin">Entrar como administrador</span>
             </button>
         </form>
 
     </div>
-</div>
+</main>
 
 <footer>
     <div class="text-center py-3 text-muted">

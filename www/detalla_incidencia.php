@@ -35,41 +35,54 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body class="bg-light">
 
-<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
+<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm" role="banner">
     <div class="d-flex align-items-center">
-        <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height:40px;">
+        <img src="IMG/LogoEmpresa.jpg" alt="Logo de l'empresa" style="height:40px;">
         <span class="fw-bold text-primary ms-3" data-key="detalla_incidencia">Detalla tu incidencia</span>
     </div>
 
-    <a href="index.php" class="btn btn-outline-primary">
-        <i class="bi bi-house-door-fill fs-4"></i>
+    <a href="index.php" class="btn btn-outline-primary" aria-label="Volver al inicio">
+        <i class="bi bi-house-door-fill fs-4" aria-hidden="true"></i>
     </a>
 </header>
 
-<div class="d-flex justify-content-center align-items-center my-5">
+<main class="d-flex justify-content-center align-items-center my-5">
     <div class="card p-4 text-center shadow-sm" style="width:100%; max-width:400px;">
 
-        <form method="POST">
+        <h1 class="fs-5 fw-bold mb-3" data-key="detalla_incidencia">Detalla tu incidencia</h1>
 
-            <input type="text" name="titulo" class="form-control mb-3"
-                   placeholder="Título" data-key="ph_titulo" required>
+        <form method="POST" novalidate>
 
-            <select name="aula" class="form-select mb-3" required>
-                <option value="" disabled selected data-key="sel_departamento">Selecciona un departamento</option>
-                <?php foreach ([1=>"Informática",2=>"Secretaría",3=>"Dirección",4=>"Mediateca",5=>"Mantenimiento"] as $id=>$dep): ?>
-                    <option value="<?= $id ?>"><?= $dep ?></option>
-                <?php endforeach; ?>
-            </select>
+            <div class="mb-3 text-start">
+                <label for="titulo" class="form-label visually-hidden" data-key="ph_titulo">Título</label>
+                <input type="text" id="titulo" name="titulo" class="form-control"
+                       placeholder="Título" data-key="ph_titulo" required aria-required="true">
+            </div>
 
-            <textarea name="descripcion" class="form-control mb-3"
-                      placeholder="Descripción" data-key="ph_descripcion" required></textarea>
+            <div class="mb-3 text-start">
+                <label for="aula" class="form-label visually-hidden" data-key="sel_departamento">Departamento</label>
+                <select id="aula" name="aula" class="form-select" required aria-required="true">
+                    <option value="" disabled selected data-key="sel_departamento">Selecciona un departamento</option>
+                    <?php foreach ([1=>"Informática",2=>"Secretaría",3=>"Dirección",4=>"Mediateca",5=>"Mantenimiento"] as $id=>$dep): ?>
+                        <option value="<?= $id ?>"><?= $dep ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-            <button class="btn btn-primary w-100" data-key="btn_enviar">Enviar</button>
+            <div class="mb-3 text-start">
+                <label for="descripcion" class="form-label visually-hidden" data-key="ph_descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion" class="form-control"
+                          placeholder="Descripción (mínimo 15 caracteres)" data-key="ph_descripcion"
+                          required aria-required="true" aria-describedby="desc-hint"></textarea>
+                <small id="desc-hint" class="text-muted">Mínimo 15 caracteres</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" data-key="btn_enviar">Enviar</button>
 
         </form>
 
     </div>
-</div>
+</main>
 
 <footer>
     <div class="text-center py-3 text-muted">

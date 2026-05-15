@@ -2,6 +2,8 @@
 require_once "logger.php";
 include "conexion.php";
 
+$tecnicos = $conn->query("SELECT id_usuario, nombre FROM USUARIO WHERE rol='tecnico'")->fetchAll(PDO::FETCH_ASSOC);
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $tecnico = empty($_POST['tecnico']) ? null : $_POST['tecnico'];
 
@@ -43,7 +45,6 @@ $incidencias = $conn->query("SELECT * FROM INCIDENCIA")->fetchAll(PDO::FETCH_ASS
                         <th data-key="asunto">Asunto</th>
                         <th data-key="estado">Estado</th>
                         <th data-key="prioridad">Prioridad</th>
-                        <th data-key="tecnico">Técnico</th>
                         <th data-key="accion">Acción</th>
                     </tr>
                 </thead>
@@ -84,9 +85,6 @@ $incidencias = $conn->query("SELECT * FROM INCIDENCIA")->fetchAll(PDO::FETCH_ASS
                                 <button type="submit" class="btn btn-sm btn-danger">Asignar</button>
                             </form>
                         </td>
-                        <td>
-                            <a href="gestionar_incidencia.php?id=<?= $inc['num_incidencia'] ?>" class="btn btn-sm btn-primary">Gestionar</a>
-                        </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -96,8 +94,6 @@ $incidencias = $conn->query("SELECT * FROM INCIDENCIA")->fetchAll(PDO::FETCH_ASS
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- RUTA CORRECTA -->
 <script src="JS/idioma.js"></script>
 
 </body>

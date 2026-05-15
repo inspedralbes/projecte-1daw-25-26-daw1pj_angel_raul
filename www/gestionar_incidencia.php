@@ -41,57 +41,63 @@ $acts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body class="bg-light">
 
-<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
+<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm" role="banner">
     <div class="d-flex align-items-center">
-        <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height:40px;">
+        <img src="IMG/LogoEmpresa.jpg" alt="Logo de l'empresa" style="height:40px;">
         <span class="ms-3 fw-bold fs-4 text-secondary" data-key="gestionar_incidencia">Gestionar incidencia</span>
     </div>
-    <a href="listado_incidencia.php" class="btn btn-outline-primary">
-        <i class="bi bi-arrow-left fs-4"></i>
+    <a href="listado_incidencia.php" class="btn btn-outline-primary" aria-label="Volver al listado">
+        <i class="bi bi-arrow-left fs-4" aria-hidden="true"></i>
     </a>
 </header>
 
-<div class="container my-4" style="max-width:600px;">
+<main class="container my-4" style="max-width:600px;">
 
     <?php if ($mensaje): ?>
-        <div class="alert alert-success text-center" data-key="guardar"><?= $mensaje ?></div>
+        <div class="alert alert-success text-center" role="alert" data-key="guardar"><?= $mensaje ?></div>
     <?php endif; ?>
 
     <div class="card shadow-sm p-4 mb-4">
-        <h5 class="fw-bold">Incidencia #<?= $inc['num_incidencia'] ?></h5>
+        <h1 class="fs-5 fw-bold">Incidencia #<?= $inc['num_incidencia'] ?></h1>
         <p><b data-key="asunto">Asunto</b>: <?= $inc['asunto'] ?></p>
         <p><b data-key="descripcion">Descripción</b>: <?= $inc['descripcion'] ?></p>
         <p><b data-key="fecha">Fecha</b>: <?= $inc['fecha_inicio'] ?></p>
     </div>
 
     <div class="card shadow-sm p-4 mb-4">
-        <h5 class="fw-bold mb-3" data-key="actualizar">Actualizar</h5>
+        <h2 class="fs-5 fw-bold mb-3" data-key="actualizar">Actualizar</h2>
 
-        <form method="POST">
+        <form method="POST" novalidate>
             <input type="hidden" name="id" value="<?= $inc['num_incidencia'] ?>">
 
-            <label class="form-label fw-bold" data-key="estado">Estado</label>
-            <select name="estado" class="form-select mb-3">
-                <?php foreach (['Abierta','En proceso','Cerrada'] as $estado): ?>
-                    <option value="<?= $estado ?>" <?= $inc['estado']===$estado?'selected':'' ?>>
-                        <?= $estado ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
+            <div class="mb-3">
+                <label for="estado" class="form-label fw-bold" data-key="estado">Estado</label>
+                <select id="estado" name="estado" class="form-select">
+                    <?php foreach (['Abierta','En proceso','Cerrada'] as $estado): ?>
+                        <option value="<?= $estado ?>" <?= $inc['estado']===$estado?'selected':'' ?>>
+                            <?= $estado ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-            <label class="form-label fw-bold" data-key="prioridad">Prioridad</label>
-            <select name="prioridad" class="form-select mb-3">
-                <?php foreach ([1=>'Alta',2=>'Media',3=>'Baja'] as $k=>$v): ?>
-                    <option value="<?= $k ?>" <?= $inc['id_prioridad']==$k?'selected':'' ?>>
-                        <?= $v ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
+            <div class="mb-3">
+                <label for="prioridad" class="form-label fw-bold" data-key="prioridad">Prioridad</label>
+                <select id="prioridad" name="prioridad" class="form-select">
+                    <?php foreach ([1=>'Alta',2=>'Media',3=>'Baja'] as $k=>$v): ?>
+                        <option value="<?= $k ?>" <?= $inc['id_prioridad']==$k?'selected':'' ?>>
+                            <?= $v ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-            <label class="form-label fw-bold" data-key="comentario">Comentario</label>
-            <textarea name="comentario" class="form-control mb-3" placeholder="Comentario..." data-key="comentario"></textarea>
+            <div class="mb-3">
+                <label for="comentario" class="form-label fw-bold" data-key="comentario">Comentario</label>
+                <textarea id="comentario" name="comentario" class="form-control" placeholder="Comentario..." data-key="comentario"></textarea>
+            </div>
 
-            <button class="btn btn-success w-100" data-key="guardar">Guardar</button>
+            <button type="submit" class="btn btn-success w-100" data-key="guardar">Guardar</button>
         </form>
     </div>
 
@@ -102,7 +108,7 @@ $acts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         </div>
     <?php endforeach; ?>
 
-</div>
+</main>
 
 <footer>
     <div class="text-center py-3 text-muted">

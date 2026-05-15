@@ -6,7 +6,7 @@ $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    require_once "logger.php"; // 👈 aquí
+    require_once "logger.php";
 
     $codigo = trim($_POST['codigo'] ?? '');
 
@@ -49,41 +49,44 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body class="bg-light">
 
-<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
-    <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height:40px;">
-    <a href="index.php" class="btn btn-outline-primary">
-        <i class="bi bi-house-door-fill fs-4"></i>
+<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm" role="banner">
+    <img src="IMG/LogoEmpresa.jpg" alt="Logo de l'empresa" style="height:40px;">
+    <a href="index.php" class="btn btn-outline-primary" aria-label="Volver al inicio">
+        <i class="bi bi-house-door-fill fs-4" aria-hidden="true"></i>
     </a>
 </header>
 
-<div class="d-flex justify-content-center align-items-center" style="min-height:80vh;">
+<main class="d-flex justify-content-center align-items-center" style="min-height:80vh;">
 
     <div class="border rounded p-4 shadow-lg bg-white" style="max-width:400px; width:100%;">
 
-        <h5 class="fw-bold text-secondary mb-3 text-center" data-key="identificacion_tecnico">Identifícate, por favor</h5>
+        <h1 class="fw-bold text-secondary mb-3 text-center fs-5" data-key="identificacion_tecnico">Identifícate, por favor</h1>
 
         <?php if ($error): ?>
-            <div class="alert alert-danger text-center">
-                <i class="bi bi-x-circle me-1"></i>
+            <div class="alert alert-danger text-center" role="alert">
+                <i class="bi bi-x-circle me-1" aria-hidden="true"></i>
                 <span data-key="codigo_incorrecto"><?= htmlspecialchars($error) ?></span>
             </div>
         <?php endif; ?>
 
-        <form method="POST">
-            <label class="form-label text-secondary" data-key="codigo_verificacion">Código de verificación</label>
-            <input type="password" name="codigo"
-                   class="form-control mb-3 <?= $error ? 'is-invalid' : '' ?>"
-                   placeholder="Código" data-key="codigo_verificacion">
+        <form method="POST" novalidate>
+            <div class="mb-3">
+                <label for="codigo" class="form-label text-secondary" data-key="codigo_verificacion">Código de verificación</label>
+                <input type="password" id="codigo" name="codigo"
+                       class="form-control <?= $error ? 'is-invalid' : '' ?>"
+                       placeholder="Código" data-key="codigo_verificacion"
+                       required aria-required="true">
+            </div>
 
-            <button class="btn btn-secondary w-100">
-                <i class="bi bi-shield-lock me-1"></i>
+            <button type="submit" class="btn btn-secondary w-100">
+                <i class="bi bi-shield-lock me-1" aria-hidden="true"></i>
                 <span data-key="entrar_tecnico">Entrar como técnico</span>
             </button>
         </form>
 
     </div>
 
-</div>
+</main>
 
 <footer>
     <div class="text-center py-3 text-muted">
@@ -91,7 +94,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 </footer>
 
-<!-- RUTA CORRECTA -->
 <script src="JS/idioma.js"></script>
 
 </body>

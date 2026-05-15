@@ -36,24 +36,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body class="bg-light">
 
-<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm">
+<header class="border-bottom py-2 px-3 d-flex justify-content-between align-items-center bg-white shadow-sm" role="banner">
     <div class="d-flex align-items-center">
-        <img src="IMG/LogoEmpresa.jpg" alt="Logo" style="height:40px;">
+        <img src="IMG/LogoEmpresa.jpg" alt="Logo de l'empresa" style="height:40px;">
         <span class="ms-3 fw-bold fs-4 text-primary" data-key="seguimiento">SEGUIMIENTO</span>
     </div>
-    <a href="index.php" class="btn btn-outline-primary">
-        <i class="bi bi-house-door-fill fs-4"></i>
+    <a href="index.php" class="btn btn-outline-primary" aria-label="Volver al inicio">
+        <i class="bi bi-house-door-fill fs-4" aria-hidden="true"></i>
     </a>
 </header>
 
-<div class="d-flex justify-content-center align-items-center" style="min-height:75vh;">
+<main class="d-flex justify-content-center align-items-center" style="min-height:75vh;">
 
     <?php if ($incidencia): ?>
 
         <div class="card p-4 shadow-sm" style="max-width:500px; width:100%;">
-            <h5 class="fw-bold">
+            <h1 class="fs-5 fw-bold">
                 <span data-key="incidencia">Incidencia</span> #<?= $incidencia['num_incidencia'] ?>
-            </h5>
+            </h1>
 
             <p><b data-key="asunto">Asunto</b>: <?= $incidencia['asunto'] ?></p>
             <p><b data-key="descripcion">Descripción</b>: <?= $incidencia['descripcion'] ?></p>
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <?php if ($comentarios): ?>
                 <hr>
-                <h6 class="fw-bold" data-key="comentarios_tecnico">Comentarios del técnico</h6>
+                <h2 class="fs-6 fw-bold" data-key="comentarios_tecnico">Comentarios del técnico</h2>
 
                 <?php foreach ($comentarios as $c): ?>
                     <div class="border rounded p-2 mb-2">
@@ -79,29 +79,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="border rounded p-4 shadow-lg bg-white" style="max-width:400px; width:100%;">
 
-            <h5 class="fw-bold text-primary mb-3 text-center" data-key="pon_numero">Pon tu número de incidencia</h5>
+            <h1 class="fw-bold text-primary mb-3 text-center fs-5" data-key="pon_numero">Pon tu número de incidencia</h1>
 
             <?php if ($error): ?>
-                <div class="alert alert-danger text-center">
+                <div class="alert alert-danger text-center" role="alert">
                     <span data-key="incidencia_no_encontrada"><?= $error ?></span>
                 </div>
             <?php endif; ?>
 
-            <form method="POST">
+            <form method="POST" novalidate>
                 <div class="mb-3">
-                    <label class="form-label" data-key="numero_incidencia">Número de incidencia</label>
-                    <input type="text" name="codigo" class="form-control"
-                           value="<?= $numero_url ?>" placeholder="Ejemplo: 0000">
+                    <label for="codigo" class="form-label" data-key="numero_incidencia">Número de incidencia</label>
+                    <input type="text" id="codigo" name="codigo" class="form-control"
+                           value="<?= $numero_url ?>" placeholder="Ejemplo: 0000"
+                           required aria-required="true">
                 </div>
 
-                <button class="btn btn-outline-primary w-100" data-key="buscar">Buscar</button>
+                <button type="submit" class="btn btn-outline-primary w-100" data-key="buscar">Buscar</button>
             </form>
 
         </div>
 
     <?php endif; ?>
 
-</div>
+</main>
 
 <footer>
     <div class="text-center py-3 text-muted">
@@ -109,7 +110,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 </footer>
 
-<!-- RUTA CORRECTA -->
 <script src="JS/idioma.js"></script>
 
 </body>

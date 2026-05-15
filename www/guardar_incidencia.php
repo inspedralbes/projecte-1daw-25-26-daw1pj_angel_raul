@@ -16,17 +16,17 @@ $numero = $_GET['numero'] ?? '?';
 
 <body class="bg-light">
 
-<div class="container my-5" style="max-width: 400px;">
+<main class="container my-5" style="max-width: 400px;">
     <div class="card p-4 text-center shadow-sm">
         <p class="text-muted" data-key="tu_numero">Tu número de incidencia es</p>
 
-        <h1 class="text-primary fw-bold" style="font-size: 5rem;"><?= $numero ?></h1>
+        <p class="text-primary fw-bold" style="font-size: 5rem;" aria-live="polite"><?= $numero ?></p>
 
         <p class="text-muted" data-key="apunta_numero">Apunta este número para hacer seguimiento</p>
 
         <a href="index.php" class="btn btn-outline-primary mt-2" data-key="volver_inicio">Volver al inicio</a>
     </div>
-</div>
+</main>
 
 <footer>
     <div class="text-center py-3 text-muted">
@@ -34,7 +34,6 @@ $numero = $_GET['numero'] ?? '?';
     </div>
 </footer>
 
-<!-- RUTA CORRECTA -->
 <script src="JS/idioma.js"></script>
 
 </body>

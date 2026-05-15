@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe d'Accessibilitat</title>
+</head>
+
+<body>
+
+<h1><strong>Informe d’Accessibilitat (WCAG AA)</strong></h1>
+
+<p>
+Aquest projecte incorpora millores d’accessibilitat seguint les pautes WCAG 2.1 nivell AA.
+L’objectiu és garantir que les pàgines principals puguin ser utilitzades per qualsevol persona,
+incloent-hi usuaris amb lector de pantalla, baixa visió o navegació per teclat.
+Les millores s’han aplicat de manera bàsica, clara i suficient per complir els requisits del mòdul.
+</p>
+
+<hr>
+
+<h2><strong>1. Estructura semàntica</strong></h2>
+
+<p>S’han afegit elements semàntics per millorar la comprensió del contingut per part de tecnologies assistives:</p>
+
+<ul>
+    <li>Ús de l’element <code>&lt;main&gt;</code> per delimitar el contingut principal.</li>
+    <li>Inclusió de títols <code>&lt;h1 class="visually-hidden"&gt;</code> en pàgines on el títol visual no era un <code>&lt;h1&gt;</code>.</li>
+    <li>Correcció de la jerarquia d’encapçalaments (<code>h1</code>, <code>h2</code>, <code>h3</code>) per mantenir un ordre lògic.</li>
+</ul>
+
+<hr>
+
+<h2><strong>2. Formularis accessibles</strong></h2>
+
+<p>En totes les pàgines amb formularis s’han aplicat les següents millores:</p>
+
+<ul>
+    <li>Inclusió d’etiquetes <code>&lt;label&gt;</code> associades correctament amb <code>for=""</code> i <code>id=""</code>.</li>
+    <li>Botons configurats amb <code>type="submit"</code> per millorar la navegació amb teclat.</li>
+    <li>Missatges d’error marcats amb <code>role="alert"</code> perquè siguin anunciats pels lectors de pantalla.</li>
+    <li>Els placeholders es mantenen com a ajuda visual, però no substitueixen els labels.</li>
+</ul>
+
+<hr>
+
+<h2><strong>3. Taules accessibles</strong></h2>
+
+<p>En les pàgines de llistat (panell tècnic i panell administrador) s’han afegit:</p>
+
+<ul>
+    <li>L’element <code>&lt;caption&gt;</code> per descriure el contingut de la taula.</li>
+    <li>L’atribut <code>scope="col"</code> en els encapçalaments <code>&lt;th&gt;</code>.</li>
+    <li>Etiquetes ocultes (<code>visually-hidden</code>) per als selects dins de les taules.</li>
+    <li>Atributs <code>aria-label</code> en els formularis d’assignació dins de la taula.</li>
+</ul>
+
+<hr>
+
+<h2><strong>4. Imatges accessibles</strong></h2>
+
+<p>
+Totes les imatges inclouen un atribut <code>alt</code> descriptiu.
+Per exemple, el logotip utilitza <code>alt="Logo de l’empresa"</code> en lloc d’un text genèric.
+</p>
+
+<hr>
+
+<h2><strong>5. Icones accessibles</strong></h2>
+
+<p>Les icones decoratives de Bootstrap Icons inclouen:</p>
+
+<ul>
+    <li><code>aria-hidden="true"</code> per evitar que els lectors de pantalla les interpretin com a contingut rellevant.</li>
+</ul>
+
+<hr>
+
+<h2><strong>6. Navegació per teclat</strong></h2>
+
+<p>
+Gràcies a l’ús d’elements natius d’HTML i Bootstrap:
+</p>
+
+<ul>
+    <li>Tots els botons, enllaços i camps són accessibles mitjançant la tecla TAB.</li>
+    <li>No s’ha utilitzat <code>tabindex</code> manual per evitar trencar l’ordre natural de navegació.</li>
+</ul>
+
+<hr>
+
+<h2><strong>7. Contrast i llegibilitat</strong></h2>
+
+<p>
+Els colors utilitzats provenen de Bootstrap i compleixen els nivells de contrast requerits per WCAG AA.
+No s’han afegit colors personalitzats que puguin afectar la llegibilitat.
+</p>
+
+<hr>
+
+<h2><strong>8. Pàgines on s’ha aplicat accessibilitat</strong></h2>
+
+<p>Les millores s’han aplicat especialment en:</p>
+
+<ul>
+    <li>Crear incidència</li>
+    <li>Llistat tècnic</li>
+    <li>Panell administrador</li>
+    <li>Gestió d’incidència</li>
+    <li>Seguiment d’incidència</li>
+    <li>Login tècnic</li>
+    <li>Login administrador</li>
+    <li>Pàgina principal</li>
+</ul>
+
+<p>
+Aquestes pàgines cobreixen els requisits mínims del mòdul:
+una pàgina de formulari i una pàgina de llistat accessibles,
+a més de millores opcionals en la resta del projecte.
+</p>
+
+<hr>
+
+<h2><strong>Conclusió</strong></h2>
+
+<p>
+El projecte compleix els requisits d’accessibilitat sol·licitats en el mòdul,
+aplicant les pautes WCAG AA de manera senzilla, clara i funcional.
+Les millores no alteren el disseny original i garanteixen que l’aplicació sigui més usable per a tots els usuaris.
+</p>
+
+</body>
+</html>
