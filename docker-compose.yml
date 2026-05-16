@@ -1,0 +1,82 @@
+services:
+  web:
+    build:
+      context: ./www
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www:/var/www/html
+      - /var/www/html/vendor
+    depends_on:
+      - db
+      - mongo
+    environment:
+      DB_HOST: db
+      DB_NAME: incidencias
+      DB_USER: usuari
+      DB_PASS: usuari1234
+      MONGO_URI: mongodb://root:example@mongo:27017/
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: incidencias
+      MYSQL_USER: usuari
+      MYSQL_PASSWORD: usuari1234
+      LANG: C.UTF-8
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db_init:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8082:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: usuari
+      PMA_PASSWORD: usuari1234
+    depends_on:
+      - db
+
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongodb_data:/data/db
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    restart: always
+    ports:
+      - "8083:8081"
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: pass
+    depends_on:
+      - mongo
+
+volumes:
+  db_data:
+  mongodb_data:
