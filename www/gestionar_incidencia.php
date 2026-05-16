@@ -73,9 +73,9 @@ $acts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
             <div class="mb-3">
                 <label for="estado" class="form-label fw-bold" data-key="estado">Estado</label>
                 <select id="estado" name="estado" class="form-select">
-                    <?php foreach (['Abierta','En proceso','Cerrada'] as $estado): ?>
-                        <option value="<?= $estado ?>" <?= $inc['estado']===$estado?'selected':'' ?>>
-                            <?= $estado ?>
+                    <?php foreach (['Abierta'=>'estado_abierta','En proceso'=>'estado_en_proceso','Cerrada'=>'estado_cerrada'] as $val=>$key): ?>
+                        <option value="<?= $val ?>" data-key="<?= $key ?>" <?= $inc['estado']===$val?'selected':'' ?>>
+                            <?= $val ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
@@ -84,9 +84,9 @@ $acts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
             <div class="mb-3">
                 <label for="prioridad" class="form-label fw-bold" data-key="prioridad">Prioridad</label>
                 <select id="prioridad" name="prioridad" class="form-select">
-                    <?php foreach ([1=>'Alta',2=>'Media',3=>'Baja'] as $k=>$v): ?>
-                        <option value="<?= $k ?>" <?= $inc['id_prioridad']==$k?'selected':'' ?>>
-                            <?= $v ?>
+                    <?php foreach ([1=>['Alta','prioridad_alta'],2=>['Media','prioridad_media'],3=>['Baja','prioridad_baja']] as $k=>$v): ?>
+                        <option value="<?= $k ?>" data-key="<?= $v[1] ?>" <?= $inc['id_prioridad']==$k?'selected':'' ?>>
+                            <?= $v[0] ?>
                         </option>
                     <?php endforeach; ?>
                 </select>

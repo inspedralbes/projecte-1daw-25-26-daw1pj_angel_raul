@@ -1,11 +1,25 @@
 <?php
 include "conexion.php";
-require_once "logger.php";
 
 $id_tecnico = $_GET['tecnico'] ?? '';
 
 $tecnicos = $conn->query("SELECT id_usuario, nombre FROM USUARIO WHERE rol='tecnico'")
                  ->fetchAll(PDO::FETCH_ASSOC);
+
+// Guardar nombre del técnico en sesión para el logger
+if (session_status() === PHP_SESSION_NONE) session_start();
+if ($id_tecnico) {
+    foreach ($tecnicos as $t) {
+        if ($t['id_usuario'] == $id_tecnico) {
+            $_SESSION['nombre'] = $t['nombre'];
+            break;
+        }
+    }
+} else {
+    unset($_SESSION['nombre']);
+}
+
+require_once "logger.php";
 
 $incidencias = [];
 
@@ -15,9 +29,29 @@ if ($id_tecnico) {
     $incidencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function badge($value, $map) {
-    return $map[$value] ?? '';
-}
+$estadoKey = [
+    'Abierta'    => 'estado_abierta',
+    'En proceso' => 'estado_en_proceso',
+    'Cerrada'    => 'estado_cerrada'
+];
+
+$estadoClass = [
+    'Abierta'    => 'badge bg-warning text-dark',
+    'En proceso' => 'badge bg-info text-dark',
+    'Cerrada'    => 'badge bg-success'
+];
+
+$prioridadKey = [
+    1 => 'prioridad_alta',
+    2 => 'prioridad_media',
+    3 => 'prioridad_baja'
+];
+
+$prioridadClass = [
+    1 => 'badge bg-danger',
+    2 => 'badge bg-warning text-dark',
+    3 => 'badge bg-success'
+];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -80,25 +114,25 @@ function badge($value, $map) {
 
                 <tbody>
                     <?php foreach ($incidencias as $i): ?>
-
                     <tr>
                         <td><?= $i['num_incidencia'] ?></td>
                         <td><?= $i['asunto'] ?></td>
 
                         <td>
-                            <?= badge($i['estado'], [
-                                'Abierta'    => '<span class="badge bg-warning text-dark">Abierta</span>',
-                                'En proceso' => '<span class="badge bg-info text-dark">En proceso</span>',
-                                'Cerrada'    => '<span class="badge bg-success">Cerrada</span>'
-                            ]) ?>
+                            <span class="<?= $estadoClass[$i['estado']] ?? 'badge bg-secondary' ?>"
+                                  data-key="<?= $estadoKey[$i['estado']] ?? '' ?>">
+                                <?= $i['estado'] ?>
+                            </span>
                         </td>
 
                         <td>
-                            <?= badge($i['id_prioridad'], [
-                                1 => '<span class="badge bg-danger">Alta</span>',
-                                2 => '<span class="badge bg-warning text-dark">Media</span>',
-                                3 => '<span class="badge bg-success">Baja</span>'
-                            ]) ?>
+                            <span class="<?= $prioridadClass[$i['id_prioridad']] ?? 'badge bg-secondary' ?>"
+                                  data-key="<?= $prioridadKey[$i['id_prioridad']] ?? '' ?>">
+                                <?php
+                                    $prioridadTexto = [1=>'Alta',2=>'Media',3=>'Baja'];
+                                    echo $prioridadTexto[$i['id_prioridad']] ?? '';
+                                ?>
+                            </span>
                         </td>
 
                         <td><?= $i['fecha_inicio'] ?></td>
@@ -111,7 +145,6 @@ function badge($value, $map) {
                             </a>
                         </td>
                     </tr>
-
                     <?php endforeach; ?>
                 </tbody>
 

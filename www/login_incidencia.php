@@ -23,6 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error = "Incidencia no encontrada";
     }
 }
+
+$estadoKey = [
+    'Abierta'    => 'estado_abierta',
+    'En proceso' => 'estado_en_proceso',
+    'Cerrada'    => 'estado_cerrada'
+];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -57,7 +63,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <p><b data-key="asunto">Asunto</b>: <?= $incidencia['asunto'] ?></p>
             <p><b data-key="descripcion">Descripción</b>: <?= $incidencia['descripcion'] ?></p>
-            <p><b data-key="estado">Estado</b>: <?= $incidencia['estado'] ?></p>
+            <p>
+                <b data-key="estado">Estado</b>:
+                <span data-key="<?= $estadoKey[$incidencia['estado']] ?? '' ?>"><?= $incidencia['estado'] ?></span>
+            </p>
 
             <?php if ($comentarios): ?>
                 <hr>

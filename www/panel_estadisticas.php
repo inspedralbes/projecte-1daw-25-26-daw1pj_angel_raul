@@ -2,7 +2,7 @@
 require_once "logger.php";
 require_once __DIR__ . "/vendor/autoload.php";
 
-$uri        = (getenv('MONGODB_URI') ?: 'mongodb://root:example@mongo:27017');
+$uri        = 'mongodb+srv://a25josdomesp_db_user:UacWEKAbGdNPNwAk@cluster0.x1vhtyf.mongodb.net/';
 $client     = new MongoDB\Client($uri);
 $collection = $client->logs->accessos;
 

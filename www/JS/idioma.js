@@ -59,7 +59,12 @@ const traducciones = {
         pagina: "Página",
         filtrar: "Filtrar",
         limpiar: "Limpiar",
-        volver_inicio: "Volver al inicio"
+        estado_abierta: "Abierta",
+        estado_en_proceso: "En proceso",
+        estado_cerrada: "Cerrada",
+        prioridad_alta: "Alta",
+        prioridad_media: "Media",
+        prioridad_baja: "Baja"
     },
     cat: {
         titulo_panel: "Panell Principal",
@@ -121,7 +126,12 @@ const traducciones = {
         pagina: "Pàgina",
         filtrar: "Filtrar",
         limpiar: "Netejar",
-        volver_inicio: "Tornar a l'inici"
+        estado_abierta: "Oberta",
+        estado_en_proceso: "En procés",
+        estado_cerrada: "Tancada",
+        prioridad_alta: "Alta",
+        prioridad_media: "Mitjana",
+        prioridad_baja: "Baixa"
     }
 };
 
